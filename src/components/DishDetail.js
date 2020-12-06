@@ -6,7 +6,14 @@ import {Card,CardImg,CardImgOverlay,CardText,CardBody,
 
 class DishDetail extends Component
 {
-    
+    componentDidMount()
+    {
+        console.log("DishDetail component componentDidMount invoked")
+    }
+    componentDidUpdate()
+    {
+        console.log("DishDetail component componentDidUpdate invoked")
+    }
     renderComments(comments)
     {
         
@@ -54,6 +61,7 @@ class DishDetail extends Component
 
     render()
     {
+        console.log("DishDetail component render invoked")
         const dish=this.props.dish
         if (dish==null)
         {
