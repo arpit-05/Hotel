@@ -1,7 +1,7 @@
 import React from 'react';
-import {Card,CardImg,CardImgOverlay,CardText,CardBody,
-    CardTitle,Breadcrumb,BreadcrumbItem} from 'reactstrap';
-    import {Link} from 'react-router-dom'
+import {Card,CardImg,CardImgOverlay,CardText,CardBody,CardTitle,Breadcrumb,BreadcrumbItem} from 'reactstrap';
+import {Link} from 'react-router-dom'
+import Comment from './CommentForm'
 
     
    function RenderComments({comments})
@@ -25,7 +25,10 @@ import {Card,CardImg,CardImgOverlay,CardText,CardBody,
            return(
                <div>
                <h4>Comments</h4>
-               {com}</div>
+               {com}
+               <Comment></Comment>
+               </div>
+               
            )
         }
         
@@ -75,6 +78,7 @@ import {Card,CardImg,CardImgOverlay,CardText,CardBody,
                     </div>
                     <div className="col-12 col-md-5 m-1">
                         <RenderComments comments={props.comments} />
+                        
                     </div>
                 </div>
                 </div>
