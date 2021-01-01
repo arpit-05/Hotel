@@ -17,8 +17,7 @@ class Comment extends Component{
           this.handleSubmit = this.handleSubmit.bind(this);
     }
     handleSubmit(values){
-        console.log('Current State is '+ JSON.stringify(values))
-        alert("Current state is " +JSON.stringify(values))
+      this.props.addComment(this.props.dishId,values.rating,values.author,values.comment)
     }
     toggleModal()
     {
@@ -29,6 +28,21 @@ class Comment extends Component{
     render()
     {
         return(
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
             <React.Fragment>
             < Nav className="ml-auto" navbar>
                                 <NavItem>

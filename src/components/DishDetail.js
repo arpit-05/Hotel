@@ -2,9 +2,10 @@ import React from 'react';
 import {Card,CardImg,CardImgOverlay,CardText,CardBody,CardTitle,Breadcrumb,BreadcrumbItem} from 'reactstrap';
 import {Link} from 'react-router-dom'
 import Comment from './CommentForm'
+import { Loading } from './LoadingComponent'
 
     
-   function RenderComments({comments})
+   function RenderComments({comments,add_comments,dishId})
     {
         const com=comments.map((comment)=>{
                return(
@@ -26,7 +27,7 @@ import Comment from './CommentForm'
                <div>
                <h4>Comments</h4>
                {com}
-               <Comment></Comment>
+               <Comment addComment={add_comments} dishId={dishId}></Comment>
                </div>
                
            )
@@ -55,10 +56,24 @@ import Comment from './CommentForm'
         
         const DishDetail=(props)=>{
             const dish=props.dish
-        if (dish==null)
+        if (props.isLoading)
         {
-            return (<div></div>)
+            return (<div className='container'>
+                <div className='row'>
+                    <Loading/>
+                </div>
+            </div>)
         }
+        else if(props.errmsg)
+        {
+            return(<div className='container'>
+                <div className='row'>
+                    <h4>{props.errmsg}</h4>
+                </div>
+            </div>)
+        }
+        else if(dish!=null)
+        {
         return(
           <div className="container">
                 <div className="row">
@@ -77,13 +92,16 @@ import Comment from './CommentForm'
                         <RenderDish dish={props.dish} />
                     </div>
                     <div className="col-12 col-md-5 m-1">
-                        <RenderComments comments={props.comments} />
+                        <RenderComments comments={props.comments}
+                                        add_comments={props.add_comments}
+                                        dishId={dish.id} />
                         
                     </div>
                 </div>
                 </div>
         )
     }
+}
 
 
 
