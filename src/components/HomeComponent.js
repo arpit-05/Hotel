@@ -32,7 +32,7 @@ return(
 }
 function Home(props)
 {
-    console.log(props.dishesLoading)
+    
     return(
         <div className="container">
             <div className="row align-items-start">
