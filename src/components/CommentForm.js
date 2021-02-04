@@ -17,7 +17,7 @@ class Comment extends Component{
           this.handleSubmit = this.handleSubmit.bind(this);
     }
     handleSubmit(values){
-      this.props.addComment(this.props.dishId,values.rating,values.author,values.comment)
+      this.props.postComment(this.props.dishId,values.rating,values.name,values.comment)
     }
     toggleModal()
     {
@@ -27,23 +27,7 @@ class Comment extends Component{
     }
     render()
     {
-        return(
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            
-            <React.Fragment>
+        return(<React.Fragment>
             < Nav className="ml-auto" navbar>
                                 <NavItem>
                                     <Button outline onClick={this.toggleModal}><span className="fa fa-pencil fa-lg"></span> Submit Comment</Button>

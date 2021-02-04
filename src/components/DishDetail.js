@@ -5,7 +5,7 @@ import Comment from './CommentForm'
 import { Loading } from './LoadingComponent'
 
     
-   function RenderComments({comments,add_comments,dishId})
+   function RenderComments({comments,postComment,dishId})
     {
         const com=comments.map((comment)=>{
                return(
@@ -27,7 +27,7 @@ import { Loading } from './LoadingComponent'
                <div>
                <h4>Comments</h4>
                {com}
-               <Comment addComment={add_comments} dishId={dishId}></Comment>
+               <Comment postComment={postComment} dishId={dishId}></Comment>
                </div>
                
            )
@@ -92,7 +92,7 @@ import { Loading } from './LoadingComponent'
                                 <RenderDish dish={props.dish} />
                                 <RenderComments 
                                     comments={props.comments}
-                                    addComment={props.addComment}
+                                    postComment={props.postComment}
                                     dishId={props.dish.id}
                                 />
                         </div>
